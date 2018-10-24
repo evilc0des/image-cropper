@@ -15,6 +15,7 @@ Follow these steps to Get Started:
     
  - Start the App<br/>
 	`npm start`<br/>
+	<br/>
 	Runs the app in the development mode with hot-reloading and linting.  
 	Open  [http://localhost:3000](http://localhost:3000/)  to view it in the browser.
 
@@ -37,20 +38,20 @@ Your app is ready to be deployed!
 
 The component can be used as follows.
 
- - Import the component
+ - Import the component<br/>
  `import  CropComponent  from  "./CropComponent";`
  
- - Use the Component in your Render method
+ - Use the Component in your Render method<br/>
   `<CropComponent/>`
 
-The Component optionally takes a prop **onSaveImage**
-`<CropComponent onSaveImage={saveImage} />`
+The Component optionally takes a prop **onSaveImage**<br/>
+`<CropComponent onSaveImage={saveImage} />`<br/>
 
 **onSaveImage** expects a function which takes the final cropped image as input and returns a promise that resolves to the uploaded URL.
 
-If this prop is missing, the following function is used by default to show the image.
-`function saveImage(imageFile) {`
-&ensp;&ensp;&ensp;`	return Promise.resolve("http://lorempixel.com/800/100/cats/");` 
+If this prop is missing, the following function is used by default to show the image.<br/>
+`function saveImage(imageFile) {`<br/>
+&ensp;&ensp;&ensp;`	return Promise.resolve("http://lorempixel.com/800/100/cats/");`<br/> 
 `}`
 
 
