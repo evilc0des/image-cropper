@@ -165,7 +165,7 @@ class CropComponent extends Component {
       const finalImage = await this.getCroppedImg(
         image,
         pixelCrop,
-        "newFile.jpeg"
+        this.state.srcFile.name
       );
       this.setState({ finalImage });
     }
@@ -175,7 +175,7 @@ class CropComponent extends Component {
     const finalImage = await this.getCroppedImg(
       this.state.image,
       pixelCrop,
-      "newFile.jpeg"
+      this.state.srcFile.name
     );
     this.setState({ finalImage });
   };
@@ -239,6 +239,11 @@ class CropComponent extends Component {
     //The image sometimes loads too slowly based on network, we delay print for load
     wnd.document.querySelector("#final-img").onload = function() {
       wnd.print();
+      wnd.setTimeout(wnd.close, 0);
+    };
+
+    wnd.document.querySelector("#final-img").onerror = function() {
+      wnd.alert("Image Failed to load. Try Again.");
       wnd.setTimeout(wnd.close, 0);
     };
   };
