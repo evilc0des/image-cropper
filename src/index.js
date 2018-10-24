@@ -5,10 +5,14 @@ import CropComponent from "./CropComponent";
 
 import "./styles.css";
 
+function saveImage(imageFile) {
+  return Promise.resolve("http://lorempixel.com/800/100/sports/");
+}
+
 function App() {
   return (
     <div className="App">
-      <CropComponent />
+      <CropComponent onSaveImage={saveImage} />
     </div>
   );
 }
