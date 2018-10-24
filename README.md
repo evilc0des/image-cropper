@@ -7,14 +7,14 @@ React based component to select, crop and upload an Image.
 
 Follow these steps to Get Started:
 
- - Clone the Repository
+ - Clone the Repository<br/>
  `git clone https://github.com/evilc0des/image-cropper.git`
  
- - Install Dependency
+ - Install Dependency<br/>
     `npm install`
     
- - Start the App
-	`npm start`
+ - Start the App<br/>
+	`npm start`<br/>
 	Runs the app in the development mode with hot-reloading and linting.  
 	Open  [http://localhost:3000](http://localhost:3000/)  to view it in the browser.
 
