@@ -58,3 +58,9 @@ If this prop is missing, the following function is used by default to show the i
 ## Additional Notes
 
  - The given image from lorempixel.com takes a long time to load and sometimes fails. Thus we look for the onload and onerror events in the print preview new tab to print and close the window. It may take a long time to see any result.
+ 
+ ## Roadmap
+Further improvements planned through these to-dos
+ - [ ] Publish npm UMD bundle for better reusability
+ - [ ] Add Tests
+ - [ ] More Features in API
