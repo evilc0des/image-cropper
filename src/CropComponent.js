@@ -95,7 +95,20 @@ class CropComponent extends Component {
         height: 100
       }
     };
+    
+    this.handleDone = this.handleDone.bind(this);
+    this.printPreview = this.printPreview.bind(this);
   }
+
+  handleDone(e){
+    let { onSaveImage } = this.props;
+    onSaveImage(this.state.finalImage).then(url => {
+      this.setState({
+        finalImage: url,
+        saved: true
+      });
+    });
+  };
 
   onSelectFile = e => {
     if (e.target.files && e.target.files.length > 0) {
@@ -218,17 +231,7 @@ class CropComponent extends Component {
     });
   }
 
-  handleDone = e => {
-    let { onSaveImage } = this.props;
-    onSaveImage(this.state.finalImage).then(url => {
-      this.setState({
-        finalImage: url,
-        saved: true
-      });
-    });
-  };
-
-  printPreview = e => {
+  printPreview (){
     let html = `<div style="text-align:center;">
       <img id="final-img" src="${this.state.finalImage}">
     </div>`;
@@ -367,11 +370,11 @@ class CropComponent extends Component {
               `${this.state.pixelCrop.width} x ${this.state.pixelCrop.height}`}
           </em>
         </p>
-        <button className={classes.primaryBtn} onClick={this.handleDone}>
+        <button className={`${classes.primaryBtn} save-img-btn`} onClick={this.handleDone}>
           Save Image
         </button>
         <button
-          className={classes.primaryBtn}
+          className={`${classes.primaryBtn} print-preview-btn`}
           disabled={!this.state.saved}
           onClick={this.printPreview}
         >
