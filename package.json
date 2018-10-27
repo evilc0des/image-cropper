@@ -1,15 +1,21 @@
 {
-  "name": "new",
+  "name": "react-image-cropper-uploader",
   "version": "1.0.0",
-  "description": "",
+  "description": "A react component providing image upload field with cropping functionality.",
   "keywords": [],
-  "main": "src/index.js",
+  "main": "build/imageCropperComponent.js",
+  "module": "build/imageCropperComponent.module.js",
+  "publishConfig": {
+    "access": "restricted"
+  },
   "dependencies": {
-    "react": "16.5.2",
-    "react-dom": "16.5.2",
     "react-image-crop": "6.0.1",
     "react-jss": "8.6.1",
     "react-scripts": "2.0.3"
+  },
+  "peerDependencies": {
+    "react": "16.5.2",
+    "react-dom": "16.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -22,12 +28,22 @@
     "enzyme-adapter-react-16": "^1.6.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
-    "regenerator-runtime": "^0.12.1"
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "regenerator-runtime": "^0.12.1",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-postcss": "^1.6.2",
+    "rollup-plugin-replace": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest --watch",
+    "watch": "rollup -c rollup.config.babel.js -w",
+    "build": "rollup -c rollup.config.babel.js",
+    "examples:build": "cd \"./examples\" && react-scripts build",
+    "examples:start": "cd \"./examples\" && react-scripts start",
+    "test": "jest --no-cache",
+    "start": "(npm run watch & npm run examples:start)",
     "eject": "react-scripts eject"
   },
   "browserslist": [
@@ -37,7 +53,7 @@
     "not op_mini all"
   ],
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
+    "setupTestFrameworkScriptFile": "<rootDir>test/setupTests.js",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"

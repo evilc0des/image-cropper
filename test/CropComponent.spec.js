@@ -1,6 +1,6 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
-import CropComponent from "./CropComponent";
+import CropComponent from "../src/CropComponentonent";
 
 describe("CropComponent", () => {
     let props;
