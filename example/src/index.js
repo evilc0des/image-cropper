@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import CropComponent from "./CropComponent";
+import CropComponent from "../src/CropComponent";
 
 import "./styles.css";
 
